@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="thoi_khoa_bieu_sinh_vienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="giang_vien">
+    <Key>
+      <PropertyRef Name="gv_id" />
+    </Key>
+    <Property Name="gv_id" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="gv_ho_ten" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="gv_gioi_tinh" Type="tinyint" Nullable="false" />
+    <Property Name="gv_ngay_sinh" Type="datetime" Nullable="false" />
+    <Property Name="gv_ghi_chu" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="giang_vien_lop_hoc_phan">
+    <Key>
+      <PropertyRef Name="gvlhp_id" />
+    </Key>
+    <Property Name="gvlhp_id" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="gv_id" Type="nvarchar" MaxLength="20" />
+    <Property Name="lhp_key_id" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="lich_hoc">
+    <Key>
+      <PropertyRef Name="lh_id" />
+    </Key>
+    <Property Name="lh_id" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="lh_tiet" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="lh_nhom" Type="tinyint" Nullable="false" />
+    <Property Name="lh_ngay_bat_dau" Type="datetime" />
+    <Property Name="lh_phong" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="lh_giang_vien" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="lh_ghi_chu" Type="nvarchar(max)" />
+    <Property Name="lhp_key_id" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="lop_hoc_phan">
+    <Key>
+      <PropertyRef Name="lhp_key_id" />
+    </Key>
+    <Property Name="lhp_key_id" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="lhp_ma_lhp" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="lhp_lop_hoc" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="lhp_ten_mon_hoc" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="lhp_nam_hk" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="phan_quyen">
+    <Key>
+      <PropertyRef Name="pq_ma" />
+    </Key>
+    <Property Name="pq_ma" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="pq_ten_phan_quyen" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sinh_vien">
+    <Key>
+      <PropertyRef Name="sv_ma_sv" />
+    </Key>
+    <Property Name="sv_ma_sv" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="sv_ho_dem" Type="nvarchar" MaxLength="20" />
+    <Property Name="sv_ten" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="sv_gioi_tinh" Type="tinyint" Nullable="false" />
+    <Property Name="sv_ngay_sinh" Type="datetime" Nullable="false" />
+    <Property Name="sv_ghi_chu" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="sinh_vien_lop_hoc_phan">
+    <Key>
+      <PropertyRef Name="svlhp_id" />
+    </Key>
+    <Property Name="svlhp_id" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="sv_ma_sv" Type="nvarchar" MaxLength="20" />
+    <Property Name="lhp_key_id" Type="nvarchar" MaxLength="20" />
+    <Property Name="svlhp_nhom" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'thoi_khoa_bieu_sinh_vien.dbo.tai_khoan' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tai_khoan">
+          <Property Name="tk_ma_tai_khoan" Type="nvarchar" MaxLength="20" />
+          <Property Name="tk_ten_tai_khoan" Type="nvarchar" MaxLength="30" />
+          <Property Name="tk_mat_khau" Type="nvarchar" MaxLength="100" />
+          <Property Name="pq_ma" Type="nvarchar" MaxLength="20" />
+        </EntityType>-->
+  <EntityType Name="tuan_hoc">
+    <Key>
+      <PropertyRef Name="th_id" />
+    </Key>
+    <Property Name="th_id" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="th_tuan" Type="int" Nullable="false" />
+    <Property Name="lh_id" Type="nvarchar" MaxLength="20" />
+    <Property Name="th_trang_thai" Type="int" Nullable="false" />
+    <Property Name="th_ngay" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__giang_vie__gv_id__36B12243">
+    <End Role="giang_vien" Type="Self.giang_vien" Multiplicity="0..1" />
+    <End Role="giang_vien_lop_hoc_phan" Type="Self.giang_vien_lop_hoc_phan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="giang_vien">
+        <PropertyRef Name="gv_id" />
+      </Principal>
+      <Dependent Role="giang_vien_lop_hoc_phan">
+        <PropertyRef Name="gv_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__giang_vie__lhp_k__35BCFE0A">
+    <End Role="lop_hoc_phan" Type="Self.lop_hoc_phan" Multiplicity="0..1" />
+    <End Role="giang_vien_lop_hoc_phan" Type="Self.giang_vien_lop_hoc_phan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lop_hoc_phan">
+        <PropertyRef Name="lhp_key_id" />
+      </Principal>
+      <Dependent Role="giang_vien_lop_hoc_phan">
+        <PropertyRef Name="lhp_key_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__lich_hoc__lhp_ke__2B3F6F97">
+    <End Role="lop_hoc_phan" Type="Self.lop_hoc_phan" Multiplicity="0..1" />
+    <End Role="lich_hoc" Type="Self.lich_hoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lop_hoc_phan">
+        <PropertyRef Name="lhp_key_id" />
+      </Principal>
+      <Dependent Role="lich_hoc">
+        <PropertyRef Name="lhp_key_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__sinh_vien__lhp_k__32E0915F">
+    <End Role="lop_hoc_phan" Type="Self.lop_hoc_phan" Multiplicity="0..1" />
+    <End Role="sinh_vien_lop_hoc_phan" Type="Self.sinh_vien_lop_hoc_phan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lop_hoc_phan">
+        <PropertyRef Name="lhp_key_id" />
+      </Principal>
+      <Dependent Role="sinh_vien_lop_hoc_phan">
+        <PropertyRef Name="lhp_key_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__sinh_vien__sv_ma__31EC6D26">
+    <End Role="sinh_vien" Type="Self.sinh_vien" Multiplicity="0..1" />
+    <End Role="sinh_vien_lop_hoc_phan" Type="Self.sinh_vien_lop_hoc_phan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sinh_vien">
+        <PropertyRef Name="sv_ma_sv" />
+      </Principal>
+      <Dependent Role="sinh_vien_lop_hoc_phan">
+        <PropertyRef Name="sv_ma_sv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'thoi_khoa_bieu_sinh_vien.dbo.tai_khoan' is referenced by a relationship, but cannot be found.
+        <Association Name="FK__tai_khoan__pq_ma__3A81B327" />-->
+  <Association Name="FK__tuan_hoc__lh_id__2E1BDC42">
+    <End Role="lich_hoc" Type="Self.lich_hoc" Multiplicity="0..1" />
+    <End Role="tuan_hoc" Type="Self.tuan_hoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lich_hoc">
+        <PropertyRef Name="lh_id" />
+      </Principal>
+      <Dependent Role="tuan_hoc">
+        <PropertyRef Name="lh_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="thoi_khoa_bieu_sinh_vienModelStoreContainer">
+    <EntitySet Name="giang_vien" EntityType="Self.giang_vien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="giang_vien_lop_hoc_phan" EntityType="Self.giang_vien_lop_hoc_phan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="lich_hoc" EntityType="Self.lich_hoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="lop_hoc_phan" EntityType="Self.lop_hoc_phan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="phan_quyen" EntityType="Self.phan_quyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sinh_vien" EntityType="Self.sinh_vien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sinh_vien_lop_hoc_phan" EntityType="Self.sinh_vien_lop_hoc_phan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tuan_hoc" EntityType="Self.tuan_hoc" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__giang_vie__gv_id__36B12243" Association="Self.FK__giang_vie__gv_id__36B12243">
+      <End Role="giang_vien" EntitySet="giang_vien" />
+      <End Role="giang_vien_lop_hoc_phan" EntitySet="giang_vien_lop_hoc_phan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__giang_vie__lhp_k__35BCFE0A" Association="Self.FK__giang_vie__lhp_k__35BCFE0A">
+      <End Role="lop_hoc_phan" EntitySet="lop_hoc_phan" />
+      <End Role="giang_vien_lop_hoc_phan" EntitySet="giang_vien_lop_hoc_phan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__lich_hoc__lhp_ke__2B3F6F97" Association="Self.FK__lich_hoc__lhp_ke__2B3F6F97">
+      <End Role="lop_hoc_phan" EntitySet="lop_hoc_phan" />
+      <End Role="lich_hoc" EntitySet="lich_hoc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__sinh_vien__lhp_k__32E0915F" Association="Self.FK__sinh_vien__lhp_k__32E0915F">
+      <End Role="lop_hoc_phan" EntitySet="lop_hoc_phan" />
+      <End Role="sinh_vien_lop_hoc_phan" EntitySet="sinh_vien_lop_hoc_phan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__sinh_vien__sv_ma__31EC6D26" Association="Self.FK__sinh_vien__sv_ma__31EC6D26">
+      <End Role="sinh_vien" EntitySet="sinh_vien" />
+      <End Role="sinh_vien_lop_hoc_phan" EntitySet="sinh_vien_lop_hoc_phan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tuan_hoc__lh_id__2E1BDC42" Association="Self.FK__tuan_hoc__lh_id__2E1BDC42">
+      <End Role="lich_hoc" EntitySet="lich_hoc" />
+      <End Role="tuan_hoc" EntitySet="tuan_hoc" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

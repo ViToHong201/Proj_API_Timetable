@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="thoi_khoa_bieuModelStoreContainer" CdmEntityContainer="thoi_khoa_bieuEntities">
+    <EntitySetMapping Name="giang_vien">
+      <EntityTypeMapping TypeName="thoi_khoa_bieuModel.giang_vien">
+        <MappingFragment StoreEntitySet="giang_vien">
+          <ScalarProperty Name="gv_id" ColumnName="gv_id" />
+          <ScalarProperty Name="gv_ho_ten" ColumnName="gv_ho_ten" />
+          <ScalarProperty Name="gv_gioi_tinh" ColumnName="gv_gioi_tinh" />
+          <ScalarProperty Name="gv_ngay_sinh" ColumnName="gv_ngay_sinh" />
+          <ScalarProperty Name="gv_ghi_chu" ColumnName="gv_ghi_chu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="giang_vien_lop_hoc_phan">
+      <EntityTypeMapping TypeName="thoi_khoa_bieuModel.giang_vien_lop_hoc_phan">
+        <MappingFragment StoreEntitySet="giang_vien_lop_hoc_phan">
+          <ScalarProperty Name="gvlhp_id" ColumnName="gvlhp_id" />
+          <ScalarProperty Name="gv_id" ColumnName="gv_id" />
+          <ScalarProperty Name="lhp_key_id" ColumnName="lhp_key_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lich_hoc">
+      <EntityTypeMapping TypeName="thoi_khoa_bieuModel.lich_hoc">
+        <MappingFragment StoreEntitySet="lich_hoc">
+          <ScalarProperty Name="lh_id" ColumnName="lh_id" />
+          <ScalarProperty Name="lh_tiet" ColumnName="lh_tiet" />
+          <ScalarProperty Name="lh_nhom" ColumnName="lh_nhom" />
+          <ScalarProperty Name="lh_ngay_bat_dau" ColumnName="lh_ngay_bat_dau" />
+          <ScalarProperty Name="lh_phong" ColumnName="lh_phong" />
+          <ScalarProperty Name="lh_giang_vien" ColumnName="lh_giang_vien" />
+          <ScalarProperty Name="lh_ghi_chu" ColumnName="lh_ghi_chu" />
+          <ScalarProperty Name="lhp_key_id" ColumnName="lhp_key_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lop_hoc_phan">
+      <EntityTypeMapping TypeName="thoi_khoa_bieuModel.lop_hoc_phan">
+        <MappingFragment StoreEntitySet="lop_hoc_phan">
+          <ScalarProperty Name="lhp_key_id" ColumnName="lhp_key_id" />
+          <ScalarProperty Name="lhp_ma_lhp" ColumnName="lhp_ma_lhp" />
+          <ScalarProperty Name="lhp_lop_hoc" ColumnName="lhp_lop_hoc" />
+          <ScalarProperty Name="lhp_ten_mon_hoc" ColumnName="lhp_ten_mon_hoc" />
+          <ScalarProperty Name="lhp_nam_hk" ColumnName="lhp_nam_hk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sinh_vien">
+      <EntityTypeMapping TypeName="thoi_khoa_bieuModel.sinh_vien">
+        <MappingFragment StoreEntitySet="sinh_vien">
+          <ScalarProperty Name="sv_ma_sv" ColumnName="sv_ma_sv" />
+          <ScalarProperty Name="sv_ho_dem" ColumnName="sv_ho_dem" />
+          <ScalarProperty Name="sv_ten" ColumnName="sv_ten" />
+          <ScalarProperty Name="sv_gioi_tinh" ColumnName="sv_gioi_tinh" />
+          <ScalarProperty Name="sv_ngay_sinh" ColumnName="sv_ngay_sinh" />
+          <ScalarProperty Name="sv_ghi_chu" ColumnName="sv_ghi_chu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sinh_vien_lop_hoc_phan">
+      <EntityTypeMapping TypeName="thoi_khoa_bieuModel.sinh_vien_lop_hoc_phan">
+        <MappingFragment StoreEntitySet="sinh_vien_lop_hoc_phan">
+          <ScalarProperty Name="svlhp_id" ColumnName="svlhp_id" />
+          <ScalarProperty Name="sv_ma_sv" ColumnName="sv_ma_sv" />
+          <ScalarProperty Name="lhp_key_id" ColumnName="lhp_key_id" />
+          <ScalarProperty Name="svlhp_nhom" ColumnName="svlhp_nhom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="thoi_khoa_bieuModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tuan_hoc">
+      <EntityTypeMapping TypeName="thoi_khoa_bieuModel.tuan_hoc">
+        <MappingFragment StoreEntitySet="tuan_hoc">
+          <ScalarProperty Name="th_id" ColumnName="th_id" />
+          <ScalarProperty Name="th_tuan" ColumnName="th_tuan" />
+          <ScalarProperty Name="lh_id" ColumnName="lh_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

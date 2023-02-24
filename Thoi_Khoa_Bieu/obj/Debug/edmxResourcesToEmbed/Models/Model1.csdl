@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="thoi_khoa_bieuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="giang_vien">
+    <Key>
+      <PropertyRef Name="gv_id" />
+    </Key>
+    <Property Name="gv_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="gv_ho_ten" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="gv_gioi_tinh" Type="Byte" Nullable="false" />
+    <Property Name="gv_ngay_sinh" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="gv_ghi_chu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="giang_vien_lop_hoc_phan" Relationship="Self.FK__giang_vie__gv_id__36B12243" FromRole="giang_vien" ToRole="giang_vien_lop_hoc_phan" />
+  </EntityType>
+  <EntityType Name="giang_vien_lop_hoc_phan">
+    <Key>
+      <PropertyRef Name="gvlhp_id" />
+    </Key>
+    <Property Name="gvlhp_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="gv_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="lhp_key_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="giang_vien" Relationship="Self.FK__giang_vie__gv_id__36B12243" FromRole="giang_vien_lop_hoc_phan" ToRole="giang_vien" />
+    <NavigationProperty Name="lop_hoc_phan" Relationship="Self.FK__giang_vie__lhp_k__35BCFE0A" FromRole="giang_vien_lop_hoc_phan" ToRole="lop_hoc_phan" />
+  </EntityType>
+  <EntityType Name="lich_hoc">
+    <Key>
+      <PropertyRef Name="lh_id" />
+    </Key>
+    <Property Name="lh_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lh_tiet" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lh_nhom" Type="Byte" Nullable="false" />
+    <Property Name="lh_ngay_bat_dau" Type="DateTime" Precision="3" />
+    <Property Name="lh_phong" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lh_giang_vien" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lh_ghi_chu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lhp_key_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="lop_hoc_phan" Relationship="Self.FK__lich_hoc__lhp_ke__276EDEB3" FromRole="lich_hoc" ToRole="lop_hoc_phan" />
+    <NavigationProperty Name="tuan_hoc" Relationship="Self.FK__tuan_hoc__lh_id__2A4B4B5E" FromRole="lich_hoc" ToRole="tuan_hoc" />
+  </EntityType>
+  <EntityType Name="lop_hoc_phan">
+    <Key>
+      <PropertyRef Name="lhp_key_id" />
+    </Key>
+    <Property Name="lhp_key_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lhp_ma_lhp" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lhp_lop_hoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lhp_ten_mon_hoc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lhp_nam_hk" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="giang_vien_lop_hoc_phan" Relationship="Self.FK__giang_vie__lhp_k__35BCFE0A" FromRole="lop_hoc_phan" ToRole="giang_vien_lop_hoc_phan" />
+    <NavigationProperty Name="lich_hoc" Relationship="Self.FK__lich_hoc__lhp_ke__276EDEB3" FromRole="lop_hoc_phan" ToRole="lich_hoc" />
+    <NavigationProperty Name="sinh_vien_lop_hoc_phan" Relationship="Self.FK__sinh_vien__lhp_k__30F848ED" FromRole="lop_hoc_phan" ToRole="sinh_vien_lop_hoc_phan" />
+  </EntityType>
+  <EntityType Name="sinh_vien">
+    <Key>
+      <PropertyRef Name="sv_ma_sv" />
+    </Key>
+    <Property Name="sv_ma_sv" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sv_ho_dem" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="sv_ten" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sv_gioi_tinh" Type="Byte" Nullable="false" />
+    <Property Name="sv_ngay_sinh" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="sv_ghi_chu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="sinh_vien_lop_hoc_phan" Relationship="Self.FK__sinh_vien__sv_ma__300424B4" FromRole="sinh_vien" ToRole="sinh_vien_lop_hoc_phan" />
+  </EntityType>
+  <EntityType Name="sinh_vien_lop_hoc_phan">
+    <Key>
+      <PropertyRef Name="svlhp_id" />
+    </Key>
+    <Property Name="svlhp_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sv_ma_sv" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="lhp_key_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="svlhp_nhom" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="lop_hoc_phan" Relationship="Self.FK__sinh_vien__lhp_k__30F848ED" FromRole="sinh_vien_lop_hoc_phan" ToRole="lop_hoc_phan" />
+    <NavigationProperty Name="sinh_vien" Relationship="Self.FK__sinh_vien__sv_ma__300424B4" FromRole="sinh_vien_lop_hoc_phan" ToRole="sinh_vien" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tuan_hoc">
+    <Key>
+      <PropertyRef Name="th_id" />
+    </Key>
+    <Property Name="th_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="th_tuan" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lh_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="lich_hoc" Relationship="Self.FK__tuan_hoc__lh_id__2A4B4B5E" FromRole="tuan_hoc" ToRole="lich_hoc" />
+  </EntityType>
+  <Association Name="FK__giang_vie__gv_id__36B12243">
+    <End Role="giang_vien" Type="Self.giang_vien" Multiplicity="0..1" />
+    <End Role="giang_vien_lop_hoc_phan" Type="Self.giang_vien_lop_hoc_phan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="giang_vien">
+        <PropertyRef Name="gv_id" />
+      </Principal>
+      <Dependent Role="giang_vien_lop_hoc_phan">
+        <PropertyRef Name="gv_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__giang_vie__lhp_k__35BCFE0A">
+    <End Role="lop_hoc_phan" Type="Self.lop_hoc_phan" Multiplicity="0..1" />
+    <End Role="giang_vien_lop_hoc_phan" Type="Self.giang_vien_lop_hoc_phan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lop_hoc_phan">
+        <PropertyRef Name="lhp_key_id" />
+      </Principal>
+      <Dependent Role="giang_vien_lop_hoc_phan">
+        <PropertyRef Name="lhp_key_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__lich_hoc__lhp_ke__276EDEB3">
+    <End Role="lop_hoc_phan" Type="Self.lop_hoc_phan" Multiplicity="0..1" />
+    <End Role="lich_hoc" Type="Self.lich_hoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lop_hoc_phan">
+        <PropertyRef Name="lhp_key_id" />
+      </Principal>
+      <Dependent Role="lich_hoc">
+        <PropertyRef Name="lhp_key_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tuan_hoc__lh_id__2A4B4B5E">
+    <End Role="lich_hoc" Type="Self.lich_hoc" Multiplicity="0..1" />
+    <End Role="tuan_hoc" Type="Self.tuan_hoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lich_hoc">
+        <PropertyRef Name="lh_id" />
+      </Principal>
+      <Dependent Role="tuan_hoc">
+        <PropertyRef Name="lh_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__sinh_vien__lhp_k__30F848ED">
+    <End Role="lop_hoc_phan" Type="Self.lop_hoc_phan" Multiplicity="0..1" />
+    <End Role="sinh_vien_lop_hoc_phan" Type="Self.sinh_vien_lop_hoc_phan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lop_hoc_phan">
+        <PropertyRef Name="lhp_key_id" />
+      </Principal>
+      <Dependent Role="sinh_vien_lop_hoc_phan">
+        <PropertyRef Name="lhp_key_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__sinh_vien__sv_ma__300424B4">
+    <End Role="sinh_vien" Type="Self.sinh_vien" Multiplicity="0..1" />
+    <End Role="sinh_vien_lop_hoc_phan" Type="Self.sinh_vien_lop_hoc_phan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sinh_vien">
+        <PropertyRef Name="sv_ma_sv" />
+      </Principal>
+      <Dependent Role="sinh_vien_lop_hoc_phan">
+        <PropertyRef Name="sv_ma_sv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="thoi_khoa_bieuEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="giang_vien" EntityType="Self.giang_vien" />
+    <EntitySet Name="giang_vien_lop_hoc_phan" EntityType="Self.giang_vien_lop_hoc_phan" />
+    <EntitySet Name="lich_hoc" EntityType="Self.lich_hoc" />
+    <EntitySet Name="lop_hoc_phan" EntityType="Self.lop_hoc_phan" />
+    <EntitySet Name="sinh_vien" EntityType="Self.sinh_vien" />
+    <EntitySet Name="sinh_vien_lop_hoc_phan" EntityType="Self.sinh_vien_lop_hoc_phan" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tuan_hoc" EntityType="Self.tuan_hoc" />
+    <AssociationSet Name="FK__giang_vie__gv_id__36B12243" Association="Self.FK__giang_vie__gv_id__36B12243">
+      <End Role="giang_vien" EntitySet="giang_vien" />
+      <End Role="giang_vien_lop_hoc_phan" EntitySet="giang_vien_lop_hoc_phan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__giang_vie__lhp_k__35BCFE0A" Association="Self.FK__giang_vie__lhp_k__35BCFE0A">
+      <End Role="lop_hoc_phan" EntitySet="lop_hoc_phan" />
+      <End Role="giang_vien_lop_hoc_phan" EntitySet="giang_vien_lop_hoc_phan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__lich_hoc__lhp_ke__276EDEB3" Association="Self.FK__lich_hoc__lhp_ke__276EDEB3">
+      <End Role="lop_hoc_phan" EntitySet="lop_hoc_phan" />
+      <End Role="lich_hoc" EntitySet="lich_hoc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tuan_hoc__lh_id__2A4B4B5E" Association="Self.FK__tuan_hoc__lh_id__2A4B4B5E">
+      <End Role="lich_hoc" EntitySet="lich_hoc" />
+      <End Role="tuan_hoc" EntitySet="tuan_hoc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__sinh_vien__lhp_k__30F848ED" Association="Self.FK__sinh_vien__lhp_k__30F848ED">
+      <End Role="lop_hoc_phan" EntitySet="lop_hoc_phan" />
+      <End Role="sinh_vien_lop_hoc_phan" EntitySet="sinh_vien_lop_hoc_phan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__sinh_vien__sv_ma__300424B4" Association="Self.FK__sinh_vien__sv_ma__300424B4">
+      <End Role="sinh_vien" EntitySet="sinh_vien" />
+      <End Role="sinh_vien_lop_hoc_phan" EntitySet="sinh_vien_lop_hoc_phan" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

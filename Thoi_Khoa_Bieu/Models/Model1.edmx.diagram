@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="85abb4e9750443df9c11be02bfbf5e64" Name="Diagram1">
+        <EntityTypeShape EntityType="thoi_khoa_bieuModel.giang_vien" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="thoi_khoa_bieuModel.giang_vien_lop_hoc_phan" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="thoi_khoa_bieuModel.lich_hoc" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="thoi_khoa_bieuModel.lop_hoc_phan" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="thoi_khoa_bieuModel.sinh_vien" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="thoi_khoa_bieuModel.sinh_vien_lop_hoc_phan" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="thoi_khoa_bieuModel.sysdiagram" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="thoi_khoa_bieuModel.tuan_hoc" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="thoi_khoa_bieuModel.FK__giang_vie__gv_id__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="thoi_khoa_bieuModel.FK__giang_vie__lhp_k__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="thoi_khoa_bieuModel.FK__lich_hoc__lhp_ke__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="thoi_khoa_bieuModel.FK__tuan_hoc__lh_id__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="thoi_khoa_bieuModel.FK__sinh_vien__lhp_k__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="thoi_khoa_bieuModel.FK__sinh_vien__sv_ma__300424B4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
